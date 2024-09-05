@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-
 # Author: Walter Schreppers
-# Small example to show depenency injection 
+# Small example to show simplest form of depenency injection 
 
 class GmailClient:
     def __init__(self):
@@ -23,22 +22,21 @@ class Greeter:
     def __init__(self, client):
         self.client = client
 
-    def greet(self):
-        self.client.send('Hello world')
+    def talk(self, name):
+        # the logic here does not need to know anything about what type of client as long
+        # as it has the send or any other methods used here this allows to refactor out common behaviou
+        # and avoid code duplication
+        self.client.send(f'Hello {name}')
+        self.client.send('How is your day?')
+        self.client.send(f'Goodbye {name}')
+        print()
 
 
 def add(a,b):
     return a+b
 
-
-if __name__ == '__main__':
-    # greeter is able to greet using different types of clients that we pass as object argument
-    msg1 = Greeter(FacebookClient())
-    msg2 = Greeter(GmailClient())
-
-    msg1.greet()
-    msg2.greet()
-
+def tuple_vs_lists():
+    print("tuple vs list examples:")
     # tuple vs list question I think my explanation was also a bit vague, its maybe better when I actually show it in code:
     tuptest = (2,3)
     listtest = [3,4]
@@ -52,3 +50,10 @@ if __name__ == '__main__':
     # a list/array you can however change
     listtest[1] = 5 # this is allowed
     print(add(*listtest))
+
+if __name__ == '__main__':
+    # greeter is able to greet using different types of clients that we pass as an object argument
+    Greeter(FacebookClient()).talk('Kenny')
+    Greeter(GmailClient()).talk('Walter')
+
+    tuple_vs_lists()
