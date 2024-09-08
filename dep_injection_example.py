@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-# Author: Walter Schreppers
-# Small example to show simplest form of depenency injection 
 
+# Author:           Walter Schreppers
+# Description:      Small example to show simplest form of depenency injection 
 class GmailClient:
     def __init__(self):
         self.service = 'Gmail client'
