@@ -6,4 +6,4 @@ Also an example for metaclasses added. Seems they are really powerful and allow 
 This however has the danger of making your code less readable and a lot of times introduces a performance hit you most likely
 don't want or expect.
 
-Added some async wrapping and examples to run as default event thread pool, a custom thread pool or process pool.
+Added some async wrapping example and examples to run as default event thread pool, a custom thread pool or process pool (async_wrapping.py and async_run_examples.py)
