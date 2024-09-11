@@ -1,4 +1,5 @@
-# MRO and super (method resolution order)
+# Authoer: Walter Schreppers
+# MRO and super (method resolution order) testing in practice
 class Parent:
     def __init__(self):
         print("init of class Parent")
@@ -25,7 +26,7 @@ class B(Parent):
 
 
 class C(A,B):
-    def __init(self):
+    def __init__(self):
         print("init of class C")
 
     def f(self):
@@ -33,6 +34,7 @@ class C(A,B):
         super().f()
 
 
-ctest = C()
-ctest.f()
+if __name__ == '__main__':
+    ctest = C()
+    ctest.f()
 
